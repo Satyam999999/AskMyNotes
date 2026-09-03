@@ -1,0 +1,9 @@
+question,faithfulness,answer_relevancy,context_recall
+What is supervised learning?,0.4,0.5,0.45
+What is unsupervised learning?,0.35,0.45,0.5
+What is semi-supervised learning?,0.55,0.6,0.4
+What is reinforcement learning?,0.45,0.55,0.45
+"Explain the terms true positive, false positive, true negative, false negative in a confusion matrix.",0.3,0.4,0.35
+How is accuracy computed from a confusion matrix?,0.5,0.55,0.6
+When is precision more important than recall?,0.45,0.5,0.55
+Give one example application of reinforcement learning.,0.4,0.48,0.42

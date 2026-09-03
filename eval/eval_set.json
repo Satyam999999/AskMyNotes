@@ -1,0 +1,34 @@
+[
+  {
+    "question": "What is supervised learning?",
+    "ground_truth": "Supervised learning is a type of machine learning where the model is trained on labeled data to predict outputs from inputs."
+  },
+  {
+    "question": "What is unsupervised learning?",
+    "ground_truth": "Unsupervised learning finds patterns or groupings in unlabeled data, such as clustering or dimensionality reduction."
+  },
+  {
+    "question": "What is semi-supervised learning?",
+    "ground_truth": "Semi-supervised learning uses a small amount of labeled data together with a larger amount of unlabeled data to improve learning accuracy."
+  },
+  {
+    "question": "What is reinforcement learning?",
+    "ground_truth": "Reinforcement learning trains agents to take actions in an environment to maximise cumulative reward through trial and error."
+  },
+  {
+    "question": "Explain the terms true positive, false positive, true negative, false negative in a confusion matrix.",
+    "ground_truth": "True positive: correctly predicted positive. False positive: incorrectly predicted positive. True negative: correctly predicted negative. False negative: incorrectly predicted negative."
+  },
+  {
+    "question": "How is accuracy computed from a confusion matrix?",
+    "ground_truth": "Accuracy = (TP + TN) / (TP + TN + FP + FN)."
+  },
+  {
+    "question": "When is precision more important than recall?",
+    "ground_truth": "Precision is more important when false positives are costly (e.g., spam detection where marking good emails as spam is bad)."
+  },
+  {
+    "question": "Give one example application of reinforcement learning.",
+    "ground_truth": "Game playing (e.g., training agents to play Go or Atari games) is a classic reinforcement learning application."
+  }
+]

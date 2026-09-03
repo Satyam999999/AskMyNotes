@@ -1,0 +1,54 @@
+# ─── Secrets — NEVER bake into the image ───────────────────────────────────
+.env
+.env.*
+*.env
+frontend/.env
+frontend/.env.*
+
+# ─── Python artefacts ───────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# ─── Git ────────────────────────────────────────────────────────────────────
+.git/
+.gitignore
+.gitattributes
+
+# ─── Markdown docs (project notes, design docs, phase plans) ────────────────
+*.md
+**/*.md
+
+# ─── Test / scratch Python files (root level) ───────────────────────────────
+test_*.py
+*_test.py
+
+# ─── Test files inside app/ subpackage ──────────────────────────────────────
+app/test_*.py
+app/*_test.py
+
+# ─── Evaluation scripts & artefacts ─────────────────────────────────────────
+eval/
+*.csv
+*.jsonl
+
+# ─── Frontend (node_modules and local builds) ───────────────────────────────
+frontend/node_modules/
+frontend/dist/
+
+# ─── CI / GitHub ────────────────────────────────────────────────────────────
+.github/
+
+# ─── IDE / OS noise ─────────────────────────────────────────────────────────
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+Thumbs.db
+
+# ─── Docker meta files ──────────────────────────────────────────────────────
+Dockerfile
+.dockerignore
