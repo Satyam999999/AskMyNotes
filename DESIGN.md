@@ -2,7 +2,7 @@
 
 ## Baseline Scores (v1 Pipeline — May 18, 2026)
 
-Measured via RAGAS on 8 questions from `eval/eval_set.json`:
+Measured via RAGAS across 40 questions from `eval/eval_set.json`:
 
 | Metric | Score |
 |--------|-------|
