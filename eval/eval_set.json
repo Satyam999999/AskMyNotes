@@ -1,34 +1,162 @@
 [
   {
+    "question": "What is the definition of learning according to the lecture notes?",
+    "ground_truth": "Learning is defined as the ability to improve behavior based on experience."
+  },
+  {
+    "question": "How did Arthur Samuel define machine learning in 1959?",
+    "ground_truth": "Arthur Samuel (1959) defined machine learning as the field of study that gives computers the ability to learn without being explicitly programmed, aiming to allow systems to learn by themselves through experience without human intervention."
+  },
+  {
+    "question": "What is Tom Mitchell's 1998 formal definition of a machine learning program?",
+    "ground_truth": "A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E."
+  },
+  {
+    "question": "What three components are required to define a well-defined learning problem according to Mitchell?",
+    "ground_truth": "The three components are: 1. The class of tasks (T), 2. The performance measure (P), and 3. The source of experience (E)."
+  },
+  {
+    "question": "What is the fundamental difference between traditional programming and machine learning?",
+    "ground_truth": "In traditional programming, data and a computer program are input to produce output. In machine learning, data and desired outputs are fed into the computer to produce the program or model."
+  },
+  {
+    "question": "What are the major goals of building machine learning models?",
+    "ground_truth": "Machine learning builds models that automatically improve with experience and can be used for tasks like prediction, decision making, or solving complex problems."
+  },
+  {
+    "question": "Who is the instructor and what is the academic institution indicated in Lecture 2?",
+    "ground_truth": "The instructor is Dr. Durgesh Singh from the CSE Discipline at PDPM IIITDM Jabalpur."
+  },
+  {
     "question": "What is supervised learning?",
-    "ground_truth": "Supervised learning is a type of machine learning where the model is trained on labeled data to predict outputs from inputs."
+    "ground_truth": "Supervised learning is a type of machine learning where the model is trained on labeled data to predict outputs from inputs, learning a mapping function from input x to output y."
+  },
+  {
+    "question": "What is the difference between classification and regression in supervised learning?",
+    "ground_truth": "In classification, the output variable y is a discrete value (category), whereas in regression, the output variable y is a continuous real-valued number."
   },
   {
     "question": "What is unsupervised learning?",
-    "ground_truth": "Unsupervised learning finds patterns or groupings in unlabeled data, such as clustering or dimensionality reduction."
+    "ground_truth": "Unsupervised learning finds patterns or groupings in unlabeled data where only inputs are provided without corresponding output labels."
+  },
+  {
+    "question": "What is the most important type of unsupervised learning highlighted in the notes?",
+    "ground_truth": "Clustering is highlighted as the most important type of unsupervised learning in the lecture notes."
   },
   {
     "question": "What is semi-supervised learning?",
     "ground_truth": "Semi-supervised learning uses a small amount of labeled data together with a larger amount of unlabeled data to improve learning accuracy."
   },
   {
+    "question": "How do semi-supervised techniques leverage both unsupervised and supervised methods?",
+    "ground_truth": "Semi-supervised learning uses an unsupervised technique to predict labels for the unlabeled data, and then feeds these predicted labels into supervised techniques."
+  },
+  {
+    "question": "In what domain is semi-supervised learning most commonly applied according to the notes?",
+    "ground_truth": "Semi-supervised learning is mostly applicable in image datasets where usually only a small subset of images is labeled."
+  },
+  {
     "question": "What is reinforcement learning?",
-    "ground_truth": "Reinforcement learning trains agents to take actions in an environment to maximise cumulative reward through trial and error."
+    "ground_truth": "Reinforcement learning trains agents to take actions in an environment to maximise cumulative reward through trial and error, using reward feedback and a critic that gives right/wrong signals."
+  },
+  {
+    "question": "How is the email spam classification problem mapped to Mitchell's Task (T), Experience (E), and Performance (P)?",
+    "ground_truth": "Task T: Classifying emails as spam or not spam. Experience E: Emails we have collected. Performance measure P: The number of emails correctly classified as spam or not spam."
+  },
+  {
+    "question": "How is the checkers playing problem specified under Mitchell's T, P, and E framework?",
+    "ground_truth": "Task T: Playing checkers. Performance measure P: Percent of games won against opponents. Training experience E: Playing practice games against itself."
+  },
+  {
+    "question": "What constitutes the role of the critic in reinforcement learning?",
+    "ground_truth": "The critic is authorized to say right or wrong (binary feedback), and the learning continues until the critic agrees with the learning system."
+  },
+  {
+    "question": "Give one real-world application of reinforcement learning cited in the lecture.",
+    "ground_truth": "Google Self-driving cars is cited as an application example of reinforcement learning."
+  },
+  {
+    "question": "How does traditional programming contrast with machine learning in terms of inputs and outputs?",
+    "ground_truth": "Traditional programming inputs Data and Program into the computer to produce Output. Machine learning inputs Data and Output into the computer to produce the Program."
+  },
+  {
+    "question": "When you have inputs (x1, y1), ..., (xn, yn) where yi is a continuous real number, is this classification or regression?",
+    "ground_truth": "This is a regression problem because the output variable yi is a continuous real-valued number."
+  },
+  {
+    "question": "What are the three standard splits of data in machine learning?",
+    "ground_truth": "The three standard splits of data in machine learning are Training Data, Validation Data, and Testing Data."
+  },
+  {
+    "question": "What is the definition and role of training data?",
+    "ground_truth": "Training data is the part of data used to train the model, which the model actually sees (both input and output) and learns from."
+  },
+  {
+    "question": "What is the purpose of validation data during model training?",
+    "ground_truth": "Validation data is used to frequently evaluate the model while fitting on the training dataset and to tune and improve hyperparameters."
+  },
+  {
+    "question": "How does testing data provide an unbiased evaluation of a model?",
+    "ground_truth": "Testing data provides an unbiased evaluation by having the model predict values without seeing the actual outputs, which are then compared with actual outputs present in the test set."
+  },
+  {
+    "question": "At what phase does validation data play its role compared to testing data?",
+    "ground_truth": "Validation data plays its role while the model is actually training, whereas testing data is used once the model is completely trained."
+  },
+  {
+    "question": "What is an error in hypothesis evaluation when given input x, actual value y, and hypothesis h(x)?",
+    "ground_truth": "If the predicted value ŷ = h(x) and actual y are the same, there is no error; if they are different, an error exists."
+  },
+  {
+    "question": "What is the formula for Mean Absolute Error (MAE) in regression problems?",
+    "ground_truth": "Mean Absolute Error = (1/m) * sum_{i=1}^m |h(x^{(i)}) - y^{(i)}|, measuring the average magnitude of absolute errors."
+  },
+  {
+    "question": "What is the formula for Sum of Squared Error (SSE) in regression?",
+    "ground_truth": "Sum of Squared Error = (1/m) * sum_{i=1}^m (h(x^{(i)}) - y^{(i)})^2, useful for measuring squared errors in regression."
+  },
+  {
+    "question": "What is a confusion matrix in machine learning?",
+    "ground_truth": "A confusion matrix is a table often used to describe the performance of a classification model on a set of test data for which the true values are known."
   },
   {
     "question": "Explain the terms true positive, false positive, true negative, false negative in a confusion matrix.",
     "ground_truth": "True positive: correctly predicted positive. False positive: incorrectly predicted positive. True negative: correctly predicted negative. False negative: incorrectly predicted negative."
   },
   {
+    "question": "Define True Negative (TN) and False Negative (FN) in a confusion matrix.",
+    "ground_truth": "True Negative: Actual is negative and is predicted negative. False Negative: Actual is positive but is predicted negative."
+  },
+  {
     "question": "How is accuracy computed from a confusion matrix?",
     "ground_truth": "Accuracy = (TP + TN) / (TP + TN + FP + FN)."
   },
   {
-    "question": "When is precision more important than recall?",
-    "ground_truth": "Precision is more important when false positives are costly (e.g., spam detection where marking good emails as spam is bad)."
+    "question": "What is the formula for Recall in terms of confusion matrix components?",
+    "ground_truth": "Recall = TP / (TP + FN)."
   },
   {
-    "question": "Give one example application of reinforcement learning.",
-    "ground_truth": "Game playing (e.g., training agents to play Go or Atari games) is a classic reinforcement learning application."
+    "question": "What is the formula for Precision in terms of confusion matrix components?",
+    "ground_truth": "Precision = TP / (TP + FP)."
+  },
+  {
+    "question": "What is the formula for F-measure (F1 score) and what does it combine?",
+    "ground_truth": "F-measure = (2 * Recall * Precision) / (Recall + Precision), which combines recall and precision into a harmonic mean."
+  },
+  {
+    "question": "In a confusion matrix with m=165, TP=100, FP=10, FN=5, and TN=50, calculate the accuracy.",
+    "ground_truth": "Accuracy = (100 + 50) / (100 + 5 + 10 + 50) = 150 / 165 = 0.909 (or 0.90)."
+  },
+  {
+    "question": "In the example with TP=100, FP=10, FN=5, and TN=50, what are the Recall and Precision values?",
+    "ground_truth": "Recall = 100 / (100 + 5) = 100 / 105 = 0.952 (0.95). Precision = 100 / (100 + 10) = 100 / 110 = 0.909 (0.91)."
+  },
+  {
+    "question": "In the example with TP=100, FP=10, FN=5, and TN=50, what is the computed F-measure?",
+    "ground_truth": "F-measure = (2 * 0.95 * 0.91) / (0.91 + 0.95) = 1.729 / 1.86 = 0.929 (approx 0.92)."
+  },
+  {
+    "question": "When is precision more important than recall?",
+    "ground_truth": "Precision is more important when false positives are costly (e.g., spam detection where marking good emails as spam is bad)."
   }
 ]

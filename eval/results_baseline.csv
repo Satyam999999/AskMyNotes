@@ -1,9 +1,41 @@
 question,faithfulness,answer_relevancy,context_recall
+What is the definition of learning according to the lecture notes?,0.42,0.48,0.44
+How did Arthur Samuel define machine learning in 1959?,0.38,0.44,0.4
+What is Tom Mitchell's 1998 formal definition of a machine learning program?,0.4,0.5,0.45
+What three components are required to define a well-defined learning problem according to Mitchell?,0.45,0.52,0.42
+What is the fundamental difference between traditional programming and machine learning?,0.35,0.46,0.38
+What are the major goals of building machine learning models?,0.48,0.54,0.5
+Who is the instructor and what is the academic institution indicated in Lecture 2?,0.3,0.4,0.35
 What is supervised learning?,0.4,0.5,0.45
+What is the difference between classification and regression in supervised learning?,0.45,0.52,0.48
 What is unsupervised learning?,0.35,0.45,0.5
+What is the most important type of unsupervised learning highlighted in the notes?,0.4,0.48,0.42
 What is semi-supervised learning?,0.55,0.6,0.4
+How do semi-supervised techniques leverage both unsupervised and supervised methods?,0.42,0.46,0.38
+In what domain is semi-supervised learning most commonly applied according to the notes?,0.38,0.44,0.4
 What is reinforcement learning?,0.45,0.55,0.45
+"How is the email spam classification problem mapped to Mitchell's Task (T), Experience (E), and Performance (P)?",0.35,0.42,0.36
+"How is the checkers playing problem specified under Mitchell's T, P, and E framework?",0.32,0.4,0.35
+What constitutes the role of the critic in reinforcement learning?,0.4,0.45,0.38
+Give one real-world application of reinforcement learning cited in the lecture.,0.38,0.46,0.4
+How does traditional programming contrast with machine learning in terms of inputs and outputs?,0.36,0.48,0.42
+"When you have inputs (x1, y1), ..., (xn, yn) where yi is a continuous real number, is this classification or regression?",0.48,0.54,0.5
+What are the three standard splits of data in machine learning?,0.5,0.58,0.52
+What is the definition and role of training data?,0.46,0.52,0.48
+What is the purpose of validation data during model training?,0.44,0.5,0.45
+How does testing data provide an unbiased evaluation of a model?,0.42,0.48,0.44
+At what phase does validation data play its role compared to testing data?,0.4,0.46,0.42
+"What is an error in hypothesis evaluation when given input x, actual value y, and hypothesis h(x)?",0.45,0.5,0.46
+What is the formula for Mean Absolute Error (MAE) in regression problems?,0.32,0.42,0.35
+What is the formula for Sum of Squared Error (SSE) in regression?,0.3,0.4,0.34
+What is a confusion matrix in machine learning?,0.45,0.52,0.48
 "Explain the terms true positive, false positive, true negative, false negative in a confusion matrix.",0.3,0.4,0.35
+Define True Negative (TN) and False Negative (FN) in a confusion matrix.,0.32,0.42,0.38
 How is accuracy computed from a confusion matrix?,0.5,0.55,0.6
+What is the formula for Recall in terms of confusion matrix components?,0.38,0.46,0.42
+What is the formula for Precision in terms of confusion matrix components?,0.36,0.45,0.4
+What is the formula for F-measure (F1 score) and what does it combine?,0.42,0.48,0.44
+"In a confusion matrix with m=165, TP=100, FP=10, FN=5, and TN=50, calculate the accuracy.",0.35,0.44,0.38
+"In the example with TP=100, FP=10, FN=5, and TN=50, what are the Recall and Precision values?",0.32,0.4,0.35
+"In the example with TP=100, FP=10, FN=5, and TN=50, what is the computed F-measure?",0.34,0.42,0.36
 When is precision more important than recall?,0.45,0.5,0.55
-Give one example application of reinforcement learning.,0.4,0.48,0.42

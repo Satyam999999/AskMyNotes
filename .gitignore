@@ -44,6 +44,8 @@ env/
 
 # Project-specific
 eval/eval_results.csv
+data/
+*.pdf
 /tmp/
 *.log
 frontend/node_modules/

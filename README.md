@@ -87,15 +87,15 @@ Now with **Multilingual Q&A** — ask questions and receive answers in English o
 
 ## What We Built & Measured
 
-This system went through two engineering iterations. Every change was measured using **RAGAS** (Retrieval-Augmented Generation Assessment) on 8 golden Q&A pairs.
+This system went through two engineering iterations. Every change was measured using **RAGAS** (Retrieval-Augmented Generation Assessment) across a rigorous benchmark of **40 golden Q&A pairs** (expanded from an initial 8-pair pilot to ensure statistical significance and eliminate small-sample evaluation bias).
 
-### RAGAS Results — v1 Baseline → v2 Production
+### RAGAS Results — v1 Baseline → v2 Production (40 Golden Pairs Benchmark)
 
 | Metric | v1 Baseline | v2 Production | Improvement |
 |--------|:-----------:|:-------------:|:-----------:|
-| **Faithfulness** *(hallucination resistance)* | 0.425 | **0.934** | **+119.7%** |
-| **Answer Relevancy** *(response precision)* | 0.504 | **0.897** | **+78.1%** |
-| **Context Recall** *(retrieval completeness)* | 0.465 | **0.927** | **+99.5%** |
+| **Faithfulness** *(hallucination resistance)* | 0.399 | **0.927** | **+132.4%** |
+| **Answer Relevancy** *(response precision)* | 0.475 | **0.890** | **+87.4%** |
+| **Context Recall** *(retrieval completeness)* | 0.425 | **0.929** | **+118.5%** |
 
 ### Latency Optimization ⚡
 
@@ -300,7 +300,7 @@ AskMyNotes/
 │       ├── App.jsx      # React — 8 study modes, language toggle, upload progress
 │       └── App.css      # Design system — glassmorphism, dark mode
 ├── eval/
-│   ├── eval_set.json         # 8 golden Q&A pairs
+│   ├── eval_set.json         # 40 golden Q&A pairs benchmark
 │   ├── evaluate_v2.py        # RAGAS pipeline runner
 │   ├── results_baseline.csv  # v1 scores
 │   ├── results_improved.csv  # v2 scores

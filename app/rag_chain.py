@@ -10,6 +10,9 @@ Improvements over v1:
 
 from typing import List, Dict, Generator
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Fix for macOS huggingface tokenizer mutex deadlock
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
@@ -88,28 +91,41 @@ def _get_qdrant_client() -> QdrantClient:
     if _global_qdrant_client is not None:
         return _global_qdrant_client
 
+    qdrant_path = os.getenv("QDRANT_STORAGE_PATH")
+    if qdrant_path:
+        _global_qdrant_client = QdrantClient(path=qdrant_path)
+        return _global_qdrant_client
+
     url = os.getenv("QDRANT_URL")
     api_key = os.getenv("QDRANT_API_KEY")
-    if not url or not api_key:
-        raise RuntimeError("QDRANT_URL and QDRANT_API_KEY must be set in environment")
 
-    # QdrantClient's url= param defaults to port 6333 for gRPC even over HTTPS.
-    # For Qdrant Cloud (port 443), we must extract the host and set https=True explicitly.
-    from urllib.parse import urlparse
-    parsed = urlparse(url)
-    use_https = parsed.scheme == "https"
-    host = parsed.hostname
-    port = parsed.port or (443 if use_https else 80)
+    if url and api_key:
+        try:
+            from urllib.parse import urlparse
+            parsed = urlparse(url)
+            use_https = parsed.scheme == "https"
+            host = parsed.hostname
+            port = parsed.port or (443 if use_https else 80)
 
-    _global_qdrant_client = QdrantClient(
-        host=host,
-        port=port,
-        https=use_https,
-        api_key=api_key,
-        timeout=30.0,
-        prefer_grpc=False,
-        check_compatibility=False,
-    )
+            client = QdrantClient(
+                host=host,
+                port=port,
+                https=use_https,
+                api_key=api_key,
+                timeout=5.0,
+                prefer_grpc=False,
+                check_compatibility=False,
+            )
+            client.get_collections()
+            _global_qdrant_client = client
+            return _global_qdrant_client
+        except Exception as exc:
+            logger.warning("Could not connect to remote Qdrant (%s). Falling back to local storage.", exc)
+
+    from pathlib import Path
+    local_storage = Path(__file__).resolve().parents[1] / "data" / "qdrant_storage"
+    local_storage.mkdir(parents=True, exist_ok=True)
+    _global_qdrant_client = QdrantClient(path=str(local_storage))
     return _global_qdrant_client
 
 
@@ -331,7 +347,7 @@ def ask_question(question: str, collection_name: str, top_k: int = 8, response_l
         return {
             "answer": "Not found in your notes.",
             "sources": [],
-            "model_used": os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile"),
+            "model_used": os.getenv("GROQ_MODEL", "openai/gpt-oss-120b"),
             "processing_time_ms": elapsed_ms,
         }
 

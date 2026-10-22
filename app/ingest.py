@@ -89,35 +89,43 @@ def embed_sparse(texts: List[str]) -> List[SparseVector] | None:
 
 
 def get_qdrant_client() -> QdrantClient:
-    """Initialize and return a cached Qdrant Cloud client."""
+    """Initialize and return a Qdrant client with automatic local fallback."""
     from qdrant_client import QdrantClient
     from urllib.parse import urlparse
+
+    qdrant_path = os.getenv("QDRANT_STORAGE_PATH")
+    if qdrant_path:
+        return QdrantClient(path=qdrant_path)
 
     qdrant_url = os.getenv("QDRANT_URL")
     qdrant_api_key = os.getenv("QDRANT_API_KEY")
 
-    if not qdrant_url or not qdrant_api_key:
-        raise RuntimeError(
-            "QDRANT_URL and QDRANT_API_KEY must be set in .env file."
-        )
+    if qdrant_url and qdrant_api_key:
+        try:
+            parsed = urlparse(qdrant_url)
+            use_https = parsed.scheme == "https"
+            host = parsed.hostname
+            port = parsed.port or (443 if use_https else 80)
 
-    parsed = urlparse(qdrant_url)
-    use_https = parsed.scheme == "https"
-    host = parsed.hostname
-    port = parsed.port or (443 if use_https else 80)
+            client = QdrantClient(
+                host=host,
+                port=port,
+                https=use_https,
+                api_key=qdrant_api_key,
+                prefer_grpc=False,
+                timeout=5.0,
+                check_compatibility=False,
+            )
+            client.get_collections()  # Verify connection
+            logger.info("✓ Connected to Qdrant Cloud: %s", qdrant_url)
+            return client
+        except Exception as exc:
+            logger.warning("Could not connect to Qdrant Cloud (%s). Falling back to local storage.", exc)
 
-    client = QdrantClient(
-        host=host,
-        port=port,
-        https=use_https,
-        api_key=qdrant_api_key,
-        prefer_grpc=False,
-        timeout=30.0,
-        check_compatibility=False,
-    )
-    client.get_collections()  # Verify connection
-    logger.info("✓ Connected to Qdrant Cloud: %s", qdrant_url)
-    return client
+    local_storage = Path(__file__).resolve().parents[1] / "data" / "qdrant_storage"
+    local_storage.mkdir(parents=True, exist_ok=True)
+    logger.info("✓ Using local embedded Qdrant storage: %s", local_storage)
+    return QdrantClient(path=str(local_storage))
 
 
 def _ensure_collection(client: QdrantClient, collection_name: str, has_sparse: bool = True) -> None:
